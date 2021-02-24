@@ -26,8 +26,8 @@ import javax.persistence.Table;
             query = "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :code"
     ),
     @NamedQuery(
-        name = "checkLoginCodeAndPassward",
-        query = "SELECT e FROM Employee AS e WHERE e.delate_flag = 0 AND e.code = :code AND e.password = :pass"
+        name = "checkLoginCodeAndPassword",
+        query = "SELECT e FROM Employee AS e WHERE e.delete_flag = 0 AND e.code = :code AND e.password = :pass"
     )
 })
 @Entity
@@ -55,8 +55,8 @@ public class Employee {
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
-    @Column(name = "delate_flag", nullable = false)
-    private Integer delate_flag;
+    @Column(name = "delete_flag", nullable = false)
+    private Integer delete_flag;
 
     public Integer getId() {
         return id;
@@ -114,12 +114,12 @@ public class Employee {
         this.updated_at = updated_at;
     }
 
-    public Integer getDelate_flag() {
-        return delate_flag;
+    public Integer getDelete_flag() {
+        return delete_flag;
     }
 
-    public void setDelate_flag(Integer delate_flag) {
-        this.delate_flag = delate_flag;
+    public void setDelete_flag(Integer delete_flag) {
+        this.delete_flag = delete_flag;
     }
 
 }
